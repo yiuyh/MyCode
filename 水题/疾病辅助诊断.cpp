@@ -50,22 +50,22 @@ void dfs(int x, string str){
 }
 
 int main(){
-    for(int i = 0; i < 1010; i++) tmp[i] = 1;//tmp表示全集 全部初始为1
+    for(int i = 0; i < 1010; i++) tmp[i] = 1;
     while(~scanf("%d%d", &n, &m)){
         if(n==0 && m == 0) break;
-        memset(tree, -1, sizeof(tree));//二叉树 第i层表示的是第i种指标
+        memset(tree, -1, sizeof(tree));
         char c;
         for(int i = 0; i < n; i++){
             int num;
             scanf("%d ", &num);
             for(int j = 1; j <= m; j++){
                 scanf("%c ", &c);
-                if(c == 'H') b[0][j].set(i); //若果是i位病人第j项指标为H 就把b[0]第j项的第i个数位标记为1
-                else if(c == 'L') b[1][j].set(i);//若果是i位病人第j项指标为L 就把b[1]第j项的第i个数位标记为1
+                if(c == 'H') b[0][j].set(i);
+                else if(c == 'L') b[1][j].set(i);
             }
             scanf("%c", &c);
             if(c == 'Y') ans.set(i);
-        }//以上为读入
+        }
         tree[1] = 2;
         built(1, tmp);
         dfs(1, "");
